@@ -1,0 +1,310 @@
+[gd_scene load_steps=27 format=3 uid="uid://cmikjv4vd5l8g"]
+
+[ext_resource type="Script" uid="uid://bw58d8frvtrtl" path="res://Scripts/Cow.gd" id="1_d5aq2"]
+[ext_resource type="Texture2D" uid="uid://du1je7i7kl1ta" path="res://Sprite sheets/cow_walk.png" id="1_v5uqq"]
+[ext_resource type="Texture2D" uid="uid://dv54ljlt6s76a" path="res://Misc/milk_bottle_wo_background.png" id="3_dwnhg"]
+[ext_resource type="Texture2D" uid="uid://dq4cilyqn5jc4" path="res://Misc/Sick Emoji 1 [Free Download IOS Emojis].png" id="3_yajvr"]
+[ext_resource type="FontFile" uid="uid://bgqidrc3ui5s7" path="res://UI/fonts/PixelOperator8.ttf" id="5_vigpn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1xto"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noqx1"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44ihn"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p22od"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lefj"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syofh"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qni0v"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46vqm"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_770pa"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me1gq"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udmk4"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3mqa"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s5wt"]
+atlas = ExtResource("1_v5uqq")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fb3iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1xto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noqx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44ihn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p22od")
+}],
+"loop": true,
+"name": &"cow_walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lefj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syofh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qni0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46vqm")
+}],
+"loop": true,
+"name": &"cow_walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_770pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udmk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3mqa")
+}],
+"loop": true,
+"name": &"cow_walk_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s5wt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqydh"]
+radius = 14.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bcdn7"]
+radius = 37.0
+height = 112.0
+
+[sub_resource type="Animation" id="Animation_6tx56"]
+resource_name = "DropMilkBottle"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MilkBottleWoBackground:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MilkBottleWoBackground:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, -0.349066, 0.349066, -0.349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MilkBottleWoBackground:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t3ye1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MilkBottleWoBackground:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MilkBottleWoBackground:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MilkBottleWoBackground:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c021v"]
+_data = {
+&"DropMilkBottle": SubResource("Animation_6tx56"),
+&"RESET": SubResource("Animation_t3ye1")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a01d2"]
+bg_color = Color(0.76177, 0.236534, 0.287166, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kysyc"]
+bg_color = Color(0.124155, 0.913925, 0.130045, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Cow" type="CharacterBody2D"]
+z_index = 5
+scale = Vector2(0.5, 0.5)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_d5aq2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fb3iw")
+animation = &"idle"
+frame_progress = 0.804548
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_uqydh")
+
+[node name="Pickable Area" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bcdn7")
+
+[node name="GrowthTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Sick" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, -32)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_yajvr")
+
+[node name="MilkBottleWoBackground" type="Sprite2D" parent="."]
+position = Vector2(0, -34)
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("3_dwnhg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c021v")
+}
+
+[node name="WalkTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="VetProgress" type="ProgressBar" parent="."]
+offset_left = -18.0
+offset_top = -30.0
+offset_right = 22.0
+offset_bottom = -26.0
+theme_override_fonts/font = ExtResource("5_vigpn")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_a01d2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kysyc")
+value = 33.65
+show_percentage = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 2
+debug_enabled = true
+
+[node name="AgentTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Cow Wait Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="HealTime" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Pickable Area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="Pickable Area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
+[connection signal="timeout" from="WalkTimer" to="." method="_on_walk_timer_timeout"]
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="AgentTimer" to="." method="_on_agent_timer_timeout"]
+[connection signal="timeout" from="Cow Wait Timer" to="." method="_on_cow_wait_timer_timeout"]
