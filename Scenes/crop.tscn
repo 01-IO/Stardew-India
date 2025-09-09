@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://ve3oxr1nr7gn"]
+
+[ext_resource type="Texture2D" uid="uid://csfsaiyss2r0t" path="res://Paradise_Asset_Pack_FREE/FOR_TUTORIAL/tilemap1.png" id="1_m28ni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4plyn"]
+atlas = ExtResource("1_m28ni")
+region = Rect2(224, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw53l"]
+atlas = ExtResource("1_m28ni")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icehm"]
+atlas = ExtResource("1_m28ni")
+region = Rect2(208, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkgo7"]
+atlas = ExtResource("1_m28ni")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2su0c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4plyn")
+}],
+"loop": true,
+"name": &"Fruit",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw53l")
+}],
+"loop": true,
+"name": &"Sappling_1",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icehm")
+}],
+"loop": true,
+"name": &"Sappling_2",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkgo7")
+}],
+"loop": true,
+"name": &"Seeds",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v1ek3"]
+radius = 7.07107
+
+[node name="Crop" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2su0c")
+animation = &"Seeds"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_v1ek3")
+
+[node name="GrowthTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
